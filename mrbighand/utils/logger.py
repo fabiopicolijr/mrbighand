@@ -1,5 +1,5 @@
 """
-mrbighand.logger
+utils.logger
 -------------------
 Module for setting up and executing the logging system.
 Logger:
@@ -12,7 +12,7 @@ import datetime
 import logging
 import os
 
-from mrbighand.config import ROOT_PATH, DEBUG, ERROR, INFO
+from mrbighand import ROOT_PATH, DEBUG, ERROR, INFO
 
 _now = datetime.datetime.now()
 _logger = logging.getLogger('mrbighand')
