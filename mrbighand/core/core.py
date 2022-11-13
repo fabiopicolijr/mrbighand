@@ -4,9 +4,7 @@ mrbighand.core
 Module which abstracts the main Mr. BigHand functions.
 """
 
-import os
-import json
-
+from mrbighand.utils.functions import json_to_dict
 from mrbighand.utils.logger import log
 
 
@@ -36,25 +34,6 @@ def process(setup: object):
 
     except Exception as e:
         raise Exception(f'Unable to process(): {e}')
-
-
-def json_to_dict(api_schema_file: str):
-    try:
-        # Opening JSON file
-        f = open(api_schema_file)
-
-        # returns JSON object as a dictionary
-        try:
-            data = json.load(f)
-        except ValueError as ve:
-            raise Exception(f'Invalid JSON file {api_schema_file} : {ve}')
-
-        # Closing file
-        f.close()
-    except ValueError as ve:
-        raise Exception(f'json_to_dict(): {ve}')
-
-    return data
 
 
 def dict_walk(d: dict):

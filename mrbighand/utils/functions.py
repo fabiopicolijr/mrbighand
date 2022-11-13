@@ -1,4 +1,5 @@
 import argparse
+import json
 
 
 def parse_args():
@@ -21,3 +22,22 @@ def parse_args():
     )
 
     return parser.parse_args()
+
+
+def json_to_dict(file: str):
+    try:
+        # Opening JSON file
+        f = open(file)
+
+        # returns JSON object as a dictionary
+        try:
+            data = json.load(f)
+        except ValueError as ve:
+            raise Exception(f'Invalid JSON file {file} : {ve}')
+
+        # Closing file
+        f.close()
+    except ValueError as ve:
+        raise Exception(f'json_to_dict(): {ve}')
+
+    return data
