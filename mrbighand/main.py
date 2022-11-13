@@ -2,7 +2,7 @@ import os
 
 from mrbighand.config import ERROR, IMPORT_RESULTS_PATH
 from mrbighand.core import process
-from mrbighand.setup import setup as project_setup
+from mrbighand.setup import Setup
 from mrbighand.utils.functions import parse_args
 from mrbighand.utils.logger import log
 
@@ -15,11 +15,11 @@ def main():
 
     try:
         options = parse_args()
-        project_setup(options)
 
-        # check_user_config(options)
+        setup = Setup(options)
+        log('Setup finished!')
 
-        process(options)
+        process(setup)
 
         log(f'Your files were generated at "{IMPORT_RESULTS_PATH}".')
     except Exception as e:
@@ -27,4 +27,5 @@ def main():
 
 
 if __name__ == '__main__':
+    print('oia')
     main()

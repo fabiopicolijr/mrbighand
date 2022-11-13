@@ -12,4 +12,12 @@ def parse_args():
         metavar='PROCESS'
     )
 
+    parser.add_argument(
+        '--process_type', '-t',
+        type=str,
+        help='The process type, like http-get, http-post',
+        required=True,
+        metavar='PROCESS_TYPE'
+    )
+
     return parser.parse_args()
