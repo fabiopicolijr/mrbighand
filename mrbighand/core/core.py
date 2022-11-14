@@ -3,6 +3,7 @@ mrbighand.core
 -------------------
 Module which abstracts the main Mr. BigHand functions.
 """
+from treelib import Node, Tree
 
 from mrbighand.utils.functions import json_to_dict
 from mrbighand.utils.logger import log
@@ -16,45 +17,25 @@ def process(setup: object):
 
         api_schema_data = json_to_dict(setup.api_schema_file)
 
-        dict_walk(api_schema_data)
-
-        # for k, v in dict_walk(api_schema_data):
-        #     print(k, ': ', v)
-
-            # printing result
-
-        # Iterating through the json list
-        # for i in data['emp_details']:
-        #     print(i)
-        # for index, key in enumerate(api_schema_data):
-        #     print('Index:: ', index, ' :: ', key)
-        #     for index2, key2 in enumerate(api_schema_data[key]):
-        #         print('Index:: ', index2, ' :: ', key2)
-        # log(api_schema_data)
+        dict_to_tree(api_schema_data, 0)
 
     except Exception as e:
         raise Exception(f'Unable to process(): {e}')
 
 
-def dict_walk(d: dict):
-    for k, v in d.items():
-        if type(v) == dict:  # option 1 with “type()”
-            # if isinstance(v, dict):   # option 2 with “isinstance()”
-            print(type(v), k)  # this line is for printing each nested key
-            dict_walk(v)
+def dict_to_tree(d: dict, parent):
+    for index, (k, v) in enumerate(d.items()):
+        if type(v) == dict:
+            print(f'p:{parent}', f'n:{index}', type(v), k)
+            dict_to_tree(v, index)
+        elif type(v) == list:
+            # print(f'p:{parent}', f'n:{index}', type(v), k, ': ', v)
+            for x in v:
+                dict_to_tree(x, index)
         else:
+            print(f'p:{parent}', f'n:{index}', type(v), k, ': ', v)
 
-            print(type(v), k, ': ', v)
 
-
-def dict_walk_2(d):
-    for k, v in d.items():
-        if type(v) == dict:  # option 1 with type()
-            # if isinstance(v, dict):   # option 2 with isinstance()
-            yield k, ''
-            yield from dict_walk(v)
-        else:
-            yield k, v
 
 # def get_items(test_dict, lvl):
 #     # querying for lowest level
