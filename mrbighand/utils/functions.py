@@ -41,3 +41,14 @@ def json_to_dict(file: str):
         raise Exception(f'json_to_dict(): {ve}')
 
     return data
+
+# def get_items(test_dict, lvl):
+#     # querying for lowest level
+#     if lvl == 0:
+#         yield from ((key, val) for key, val in test_dict.items()
+#                     if not isinstance(val, dict))
+#     else:
+#
+#         # recur for inner dictionaries
+#         yield from ((key1, val1) for val in test_dict.values()
+#                     if isinstance(val, dict) for key1, val1 in get_items(val, lvl - 1))

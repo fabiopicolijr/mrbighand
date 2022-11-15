@@ -1,2 +1,1 @@
-from .core import process
-
+from .process import Process

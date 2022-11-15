@@ -1,7 +1,7 @@
 import os
 
 from mrbighand.config import ERROR, IMPORT_RESULTS_PATH
-from mrbighand.core import process
+from mrbighand.core import Process
 from mrbighand.setup import Setup
 from mrbighand.utils.functions import parse_args
 from mrbighand.utils.logger import log
@@ -19,8 +19,8 @@ def main():
         setup = Setup(options)
         log('Setup finished!')
 
-        process(setup)
-
+        process = Process(setup)
+        process.start()
         log(f'Your files were generated at "{IMPORT_RESULTS_PATH}".')
     except Exception as e:
         log(e, ERROR)

@@ -8,7 +8,7 @@
 			"organizationName": "Empresa Teste S.A.",
 			"alternateUnitIDs": [
 				{
-					"id_1": "Celergo-001",
+					"id": "Celergo-001",
 					"scheme": {
 						"name": "Celergo Code"
 					}
@@ -22,7 +22,7 @@
 					"registrationStatus": {
 						"statusCode": {
 							"code": "A",
-							"name_1": "Active"
+							"name": "Active"
 						},
 						"effectiveDateTime": "2000-01-01"
 					},
@@ -33,8 +33,8 @@
 						"lineThree": "90000000",
 						"cityName": "Porto Alegre",
 						"subdivisionCode": {
-							"code_2": "RS",
-							"name_2": "Rio Grande do Sul",
+							"code": "RS",
+							"name": "Rio Grande do Sul",
 							"subdivisionType": "STATE"
 						},
 						"countryCode": "BR",
@@ -54,8 +54,12 @@
 								{
 									"areaDialing": "51",
 									"dialNumber": "30000000",
-									"formattedNumber": "51 30000000",
-									"teste": "22222"
+									"formattedNumber": "51 30000000"
+								},
+								{
+									"areaDialing": "51",
+									"dialNumber": "99999999",
+									"formattedNumber": "51 99999999"
 								}
 							],
 							"emails": [
@@ -70,11 +74,29 @@
 			"industryClassifications": [
 				{
 					"schemeCode": {
-						"name_3": "Principal CNAE"
+						"name": "Principal CNAE"
 					},
 					"classificationCode": {
-						"code_3": "7805-00",
-						"name_4": "Locação de mão de obra temporária"
+						"code": "7805-00",
+						"name": "Locação de mão de obra temporária"
+					}
+				},
+				{
+					"schemeCode": {
+						"name": "Tax Classification"
+					},
+					"classificationCode": {
+						"code": "99",
+						"name": "Pessoas Jurídicas em Geral"
+					}
+				},
+				{
+					"schemeCode": {
+						"name": "Legal Nature"
+					},
+					"classificationCode": {
+						"code": "2062",
+						"name": "Sociedade Empresária Limitada"
 					}
 				}
 			]
