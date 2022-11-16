@@ -107,7 +107,7 @@ class Process:
                     # print(f'PARENT:{parent}', f'NODE:{k}')
 
                     # TODO: create a function here to check if the node exists and retry with a new one until the
-                    #  node to be created.
+                    #  node to be created. teste
 
                     for list_value in v:
                         self.add_node(tree, k, list_value, parent)
