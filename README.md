@@ -6,11 +6,17 @@
 
 ### Progress4GL code generation
 
-- mkp_[group]_[subgroup].p
-- mkp_[group]_[version]_[api_name].p
-- mkp_[api_name]_funcs.i
-- mkp_[api_name]_reading.i
-- mkp_[api_name]_json_funcs.i
+- Type: [GET]
+  - Manual JSON Builder (Json.ObjectModel)
+    - mkp_[group]_[subgroup].p
+    - mkp_[group]_[version]_[api_name].p
+    - mkp_[api_name]_funcs.i
+    - mkp_[api_name]_reading.i
+    - mkp_[api_name]_json_funcs.i
+
+- Type: [POST]
+  - Manual JSON Builder (Json.ObjectModel)
+    - TODO
 
 ### Postman collection code generation
 - TODO
