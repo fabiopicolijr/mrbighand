@@ -1,5 +1,4 @@
 # Mr. Big Hand
-****
 
 ## Functionalities
 
@@ -21,7 +20,7 @@
 ### Postman collection code generation
 - TODO
 
-### Automation Tests (Behave) code generation
+### Automation Tests (Python Behave) code generation
 - TODO
 
 ### Documentation generation
