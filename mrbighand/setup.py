@@ -5,11 +5,10 @@ from mrbighand.utils.logger import config as logger_config, log
 
 
 class Setup:
-    def __init__(self, options: dict):
-        self.process = options.process
-        self.process_type = options.process_type
-        self.process_folder_path = os.path.join(IMPORT_PATH, self.process)
-        self.api_schema_file = os.path.join(self.process_folder_path, API_SCHEMA_FILENAME)
+    def __init__(self, options):
+        self.reference = options.reference_folder
+        self.reference_folder_path = os.path.join(IMPORT_PATH, self.reference)
+        self.api_schema_file = os.path.join(self.reference_folder_path, API_SCHEMA_FILENAME)
 
         self.create_directories()
         self.check_user_config_files()
@@ -41,8 +40,8 @@ class Setup:
             Responsible for check project configs made before run the project.
         """
 
-        if not os.path.exists(self.process_folder_path):
-            raise ValueError(f'check_user_config_files: folder "{self.process_folder_path}" not found')
+        if not os.path.exists(self.reference_folder_path):
+            raise ValueError(f'check_user_config_files: folder "{self.reference_folder_path}" not found')
 
         if not os.path.exists(self.api_schema_file):
             raise ValueError(f'check_user_config_files: file "{self.api_schema_file}" not found')

@@ -106,7 +106,7 @@ class Process:
                     # print(f'parent: {parent}', f'node: {k}', type(v), k, ': ', v)
                     # print(f'PARENT:{parent}', f'NODE:{k}')
 
-                    # TODO: create a function here to check if the node exists and retry with a new one until the
+                    # TODO: 1. create a function here to check if the node exists and retry with a new one until the
                     #  node to be created. teste
 
                     for list_value in v:

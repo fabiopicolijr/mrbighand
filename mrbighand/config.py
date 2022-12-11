@@ -7,6 +7,8 @@ Module that centers all static variables
 import os
 import platform
 
+from mrbighand.context import Context
+
 # Basic info
 PROJECT_NAME = 'mrbighand'
 PROJECT_VERSION = '0.0.1'
@@ -24,6 +26,9 @@ if OS_NAME != 'Windows':
 
 # Files
 API_SCHEMA_FILENAME = 'api_schema.json'
+
+# Context
+context = Context()
 
 
 # Output levels
