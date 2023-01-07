@@ -4,6 +4,7 @@ from treelib import Tree
 class TreeManager(Tree):
     """
     TreeManager
+    Responsible for manage Tree operations into mrbighand
     """
 
     def __init__(self):
@@ -15,7 +16,9 @@ class TreeManager(Tree):
         Responsible for creating a single process tree node
         """
         process_tree_node = TreeNode(identifier, label, type_)
-        self.create_node(tag=identifier, identifier=identifier, parent=parent, data=process_tree_node)
+        self.create_node(
+            tag=identifier, identifier=identifier, parent=parent, data=process_tree_node
+        )
 
     def dict_to_tree(self, d: dict, parent=None):
         try:
@@ -45,10 +48,3 @@ class TreeManager(Tree):
 
         except Exception as e:
             raise Exception(f"Unable to dict_to_tree(): {e}")
-
-
-class TreeNode(object):
-    def __init__(self, identifier, label, type_):
-        self.identifier = identifier
-        self.label = label
-        self.type_ = type_

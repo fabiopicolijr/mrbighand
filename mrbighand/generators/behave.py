@@ -11,7 +11,7 @@ class BehaveGenerator:
 
     def generate_service(self):
 
-        print(f'generate_service: {context.api_config}')
+        print(f"generate_service: {context.api_config}")
         # from marketplace.services.service import Service
         #
         # class PayStatementsV1Service(Service):
