@@ -1,11 +1,14 @@
 import pandas
-
-from mrbighand.config import context, OUTPUT_PATH
 from treelib import Tree
 
+from mrbighand.config import context, OUTPUT_PATH
+from mrbighand.utils.progress4gl import Progress4GL
 
-class ProgressGenerator:
+
+class ProgressGenerator(Progress4GL):
     def __init__(self, schema_tree: Tree):
+        super().__init__()
+
         self.schema_tree = schema_tree
 
     def generate(self):

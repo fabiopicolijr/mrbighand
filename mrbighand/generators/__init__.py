@@ -1,2 +1,2 @@
-from .behave import *
-from .progress import *
+from .behave_generator import *
+from .progress_generator import *
