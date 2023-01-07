@@ -1,2 +1,3 @@
-from .behave_generator import *
-from .progress_generator import *
+from .marketplace.marketplace_behave_generator import MarketplaceBehaveGenerator
+from .marketplace.marketplace_progress_generator import MarketplaceProgressGenerator
+

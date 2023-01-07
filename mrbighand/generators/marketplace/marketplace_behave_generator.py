@@ -1,7 +1,7 @@
 from mrbighand.config import context
 
 
-class BehaveGenerator:
+class MarketplaceBehaveGenerator:
     def __init__(self):
         pass
 

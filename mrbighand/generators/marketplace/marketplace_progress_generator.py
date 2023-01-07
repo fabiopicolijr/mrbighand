@@ -5,11 +5,12 @@ from mrbighand.config import context, OUTPUT_PATH
 from mrbighand.utils.progress4gl import Progress4GL
 
 
-class ProgressGenerator(Progress4GL):
-    def __init__(self, schema_tree: Tree):
+class MarketplaceProgressGenerator(Progress4GL):
+    def __init__(self, schema: Tree):
         super().__init__()
 
-        self.schema_tree = schema_tree
+        self.schema = schema
+
 
     def generate(self):
         self.generate_json_funcs()
@@ -17,11 +18,11 @@ class ProgressGenerator(Progress4GL):
     def generate_json_funcs(self):
         # sibling_nodes = [tree[nid] for nid in tree[node.predecessor(tree.identifier)].successors(tree.identifier)]
 
-        tree_id = self.schema_tree.identifier
+        tree_id = self.schema.identifier
         data = []
 
-        for node_identifier in self.schema_tree.expand_tree(mode=Tree.WIDTH):
-            node = self.schema_tree[node_identifier]
+        for node_identifier in self.schema.expand_tree(mode=Tree.WIDTH):
+            node = self.schema[node_identifier]
             parent = node.predecessor(tree_id)
             successors = node.successors(tree_id)
 

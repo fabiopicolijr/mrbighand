@@ -2,8 +2,8 @@ import pandas
 
 from mrbighand.config import ERROR, OUTPUT_PATH, context
 from mrbighand.setup import Setup
-from mrbighand.generators import BehaveGenerator
-from mrbighand.generators import ProgressGenerator
+from mrbighand.generators.marketplace import MarketplaceBehaveGenerator
+from mrbighand.generators.marketplace import MarketplaceProgressGenerator
 from mrbighand.utils.functions import json_to_dict, parse_args
 from mrbighand.utils.logger import log
 from mrbighand.utils.tree_manager import TreeManager
@@ -20,7 +20,7 @@ def main():
 
         # GENERATOR: PROGRESS
         # TODO 1: Generate Progress files => ONGOING
-        progress_generator = ProgressGenerator(api_schema_tree)
+        progress_generator = MarketplaceProgressGenerator(api_schema_tree)
         progress_generator.generate()
 
         # GENERATOR: BEHAVE
