@@ -1,4 +1,5 @@
 from treelib import Tree
+from mrbighand.utils.tree_node import TreeNode
 
 
 class TreeManager(Tree):
