@@ -1,0 +1,18 @@
+{
+    "payrollScheduleUploads": [
+        {
+            "uploadID": "Worker_Rehire-Empresa_3",
+
+            "payrollSchedules": [
+
+                {
+                    "payPeriodEndDate": "2023-01-31"
+                }
+
+            ]
+
+        }
+
+    ]
+
+}

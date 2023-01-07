@@ -17,10 +17,10 @@ class Process:
 
     def start(self):
         """
-            start method
-            Responsible for call main process methods
+        start method
+        Responsible for call main process methods
         """
-        log('Starting processing.')
+        log("Starting processing.")
 
         try:
             # self.create_fake_api_schema_tree()
@@ -29,18 +29,18 @@ class Process:
             self.generate()
 
         except Exception as e:
-            raise Exception(f'Unable to start(): {e}')
+            raise Exception(f"Unable to start(): {e}")
 
     def create_fake_api_schema_tree(self):
         """
-            convert_api_schema method
-            Responsible for creating a fake api_schema_tree
+        convert_api_schema method
+        Responsible for creating a fake api_schema_tree
         """
         try:
-            node1 = 'Mrbighand'
-            node2 = 'hello'
-            node3 = 'fabio'
-            node4 = 'picoli'
+            node1 = "Mrbighand"
+            node2 = "hello"
+            node3 = "fabio"
+            node4 = "picoli"
             node5 = 17
 
             self.add_node(self.api_schema_tree, node1.lower(), node1)
@@ -50,26 +50,26 @@ class Process:
             self.add_node(self.api_schema_tree, node5, node5, node3.lower())
 
         except Exception as e:
-            raise Exception(f'Unable to create_fake_api_schema_tree(): {e}')
+            raise Exception(f"Unable to create_fake_api_schema_tree(): {e}")
 
     def create_api_schema_tree(self):
         """
-            convert_api_schema method
-            Responsible for creating api_schema_tree through a json file
+        convert_api_schema method
+        Responsible for creating api_schema_tree through a json file
         """
         try:
             api_schema_data = json_to_dict(self.setup.api_schema_file)
 
-            print('\nCREATING NODES...')
+            print("\nCREATING NODES...")
             self.dict_to_tree(self.api_schema_tree, api_schema_data)
 
         except Exception as e:
-            raise Exception(f'Unable to process_api_schema(): {e}')
+            raise Exception(f"Unable to process_api_schema(): {e}")
 
     def generate(self):
         """
-            generate method
-            Responsible for generating files through trees
+        generate method
+        Responsible for generating files through trees
         """
         try:
             # for node in self.api_schema_tree.all_nodes_itr():
@@ -88,10 +88,10 @@ class Process:
             #     print(leaf.identifier)
 
             # show all tree nodes
-            print('\nGENERATING...')
+            print("\nGENERATING...")
             self.api_schema_tree.show()
         except Exception as e:
-            raise Exception(f'Unable to generate(): {e}')
+            raise Exception(f"Unable to generate(): {e}")
 
     def dict_to_tree(self, tree: Tree, d: dict, parent=None):
         try:
@@ -118,13 +118,15 @@ class Process:
                     self.add_node(tree, k, v, parent)
 
         except Exception as e:
-            raise Exception(f'Unable to dict_to_tree(): {e}')
+            raise Exception(f"Unable to dict_to_tree(): {e}")
 
     @staticmethod
     def add_node(tree, identifier, label, parent=None):
         """
-            generate method
-            Responsible for creating a single process tree node
+        generate method
+        Responsible for creating a single process tree node
         """
         process_tree_node = ProcessTreeNode(identifier, label, type(label))
-        tree.create_node(tag=identifier, identifier=identifier, data=process_tree_node, parent=parent)
+        tree.create_node(
+            tag=identifier, identifier=identifier, data=process_tree_node, parent=parent
+        )

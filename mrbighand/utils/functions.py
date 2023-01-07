@@ -4,14 +4,15 @@ from treelib import Tree
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(prog='mrbighand')
+    parser = argparse.ArgumentParser(prog="mrbighand")
 
     parser.add_argument(
-        '--reference-folder', '-r',
+        "--reference-folder",
+        "-r",
         type=str,
-        help='The reference-folder name that will run (import files)',
+        help="The reference-folder name that will run (import files)",
         required=True,
-        metavar='REFERENCE'
+        metavar="REFERENCE",
     )
 
     return parser.parse_args()
@@ -26,14 +27,15 @@ def json_to_dict(file: str):
         try:
             data = json.load(f)
         except ValueError as ve:
-            raise Exception(f'Invalid JSON file {file} : {ve}')
+            raise Exception(f"Invalid JSON file {file} : {ve}")
 
         # Closing file
         f.close()
     except ValueError as ve:
-        raise Exception(f'json_to_dict(): {ve}')
+        raise Exception(f"json_to_dict(): {ve}")
 
     return data
+
 
 # def get_items(test_dict, lvl):
 #     # querying for lowest level

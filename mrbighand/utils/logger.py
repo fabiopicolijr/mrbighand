@@ -15,10 +15,12 @@ import os
 from mrbighand import ROOT_PATH, DEBUG, ERROR, INFO
 
 _now = datetime.datetime.now()
-_logger = logging.getLogger('mrbighand')
-_file_formatter = logging.Formatter('%(name)s - %(asctime)s - %(levelname)s - %(message)s')
+_logger = logging.getLogger("mrbighand")
+_file_formatter = logging.Formatter(
+    "%(name)s - %(asctime)s - %(levelname)s - %(message)s"
+)
 _console_handler = logging.StreamHandler()
-_console_formatter = logging.Formatter('%(name)s: %(message)s')
+_console_formatter = logging.Formatter("%(name)s: %(message)s")
 
 
 def config():
@@ -27,7 +29,7 @@ def config():
     Creates the log file in the appropriate location.
     """
     # File handler
-    _file_handler = logging.FileHandler(ROOT_PATH + 'mrbighand.log')
+    _file_handler = logging.FileHandler(ROOT_PATH + "mrbighand.log")
     _file_handler.setFormatter(_file_formatter)
     _logger.addHandler(_file_handler)
 
@@ -55,4 +57,4 @@ def log(message, level=INFO):
             _logger.setLevel(logging.INFO)
             _logger.info(message)
     else:
-        print(_logger.name + ': ' + message)
+        print(_logger.name + ": " + message)

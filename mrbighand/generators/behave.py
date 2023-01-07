@@ -1,12 +1,17 @@
-class BehaveGenerator:
+from mrbighand.config import context
 
+
+class BehaveGenerator:
     def __init__(self):
         pass
 
     def generate(self):
+
         self.generate_service()
 
     def generate_service(self):
+
+        print(f'generate_service: {context.api_config}')
         # from marketplace.services.service import Service
         #
         # class PayStatementsV1Service(Service):
@@ -23,4 +28,7 @@ class BehaveGenerator:
         #         self.caminho_chave_principal = "/payStatements"
         #
         #         super().__init__(self.caminho_chave_principal, headers, proxy, url)
+        pass
+
+    def generate_features(self):
         pass
