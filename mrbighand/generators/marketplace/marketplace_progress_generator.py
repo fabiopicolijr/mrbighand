@@ -38,6 +38,7 @@ class MarketplaceProgressGenerator(Progress4GL):
         write_file(dot_i_file, temp_tables, separator="\n\n")
 
     def generate_json_funcs(self):
+        pass
         # data = []
         #
         # for node_identifier in self.tree.expand_tree(mode=TreeManager.WIDTH):
