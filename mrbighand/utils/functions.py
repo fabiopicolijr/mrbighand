@@ -35,3 +35,9 @@ def json_to_dict(file: str):
         raise Exception(f"json_to_dict(): {ve}")
 
     return data
+
+
+def write_file(file, items, separator=""):
+    with open(file, "w") as fp:
+        for item in items:
+            fp.write(f"%s{separator}" % item)

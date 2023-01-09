@@ -1,6 +1,7 @@
 import pandas
 
 from mrbighand.config import context, OUTPUT_PATH
+from mrbighand.utils.functions import write_file
 from mrbighand.utils.progress4gl import Progress4GL
 from mrbighand.utils.tree_manager import TreeManager
 
@@ -21,21 +22,19 @@ class MarketplaceProgressGenerator(Progress4GL):
         # self.generate_json_funcs()
         # TODO: 3. Generate funcs file
         # TODO: 4. Generate .p file
+
     def generate_dot_i(self):
         temp_tables = []
-        list_nodes = self.tree.get_nodes_by_type(list)
+        array_nodes = self.tree.get_nodes_by_type(list)
 
-        for node_id in list_nodes:
-            list_node = self.tree[node_id]
+        for node_id in array_nodes:
             related_leaves = self.tree.get_leaves_by_related(node_id)
-            temp_tables.append(self.progress4gl.create_temp_table_definition(list_node.identifier, related_leaves))
+            temp_table = self.progress4gl.create_temp_table_definition(self.tree[node_id].identifier, related_leaves)
+            temp_tables.append(temp_table)
 
-        # TODO: remove double quote outside each temp-table: ONGOING (stopped here)
-        data_df = pandas.DataFrame(temp_tables)
-        data_df.to_csv(self.file_dot_i, header=False, index=False, doublequote=False)
+        write_file(self.file_dot_i, temp_tables, separator="\n\n")
 
     def generate_json_funcs(self):
-        # sibling_nodes = [tree[nid] for nid in tree[node.predecessor(tree.identifier)].successors(tree.identifier)]
         data = []
 
         for node_identifier in self.tree.expand_tree(mode=TreeManager.WIDTH):
@@ -48,5 +47,5 @@ class MarketplaceProgressGenerator(Progress4GL):
             data.append(node_list)
             # print(parent, node.identifier, successors)
 
-        data_df = pandas.DataFrame(data)
-        data_df.to_csv(f"./{OUTPUT_PATH}/{context.setup.api_name}.i", header=False)
+        # data_df = pandas.DataFrame(data)
+        # data_df.to_csv(f"./{OUTPUT_PATH}/{context.setup.api_name}.i", header=False)
