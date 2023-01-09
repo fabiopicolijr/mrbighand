@@ -1,6 +1,6 @@
 import argparse
 import json
-from treelib import Tree
+import os
 
 
 def parse_args():
@@ -38,6 +38,8 @@ def json_to_dict(file: str):
 
 
 def write_file(file, items, separator=""):
+    os.makedirs(os.path.dirname(file), exist_ok=True)
+
     with open(file, "w") as fp:
         for item in items:
             fp.write(f"%s{separator}" % item)

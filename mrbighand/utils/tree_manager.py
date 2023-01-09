@@ -11,6 +11,7 @@ class TreeManager(Tree):
 
     def __init__(self):
         super().__init__()
+        self.reserved_fields = ['id']
 
     def attach_node(self, identifier, tag, type_, parent=None, related_list_id=None):
         """
@@ -53,7 +54,7 @@ class TreeManager(Tree):
         iterator = 1
 
         while loop:
-            if self.get_node(identifier):
+            if self.get_node(identifier) or identifier in self.reserved_fields:
                 identifier = identifier + "__" + str(iterator)
                 iterator += 1
             else:
