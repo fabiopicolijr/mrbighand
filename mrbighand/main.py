@@ -10,11 +10,15 @@ from mrbighand.utils.tree_manager import TreeManager
 
 
 def main():
+    """
+    Main function
+    Responsible for calling Setup, Import Input Files and calling Generators (Progress4GL, Behave, Docs and Postman).
+    """
     try:
         # SETUP
         context.setup = project_setup()
 
-        # IMPORT FOLDER FILES
+        # IMPORT INPUT FILES
         api_schema_tree = get_api_schema(context.setup.api_schema_file)
         context.api_config = pandas.read_json(context.setup.api_config_file)
 
@@ -40,6 +44,7 @@ def main():
 
 
 def project_setup():
+    """Parse the arguments and sets up the Mr.BigHand structure."""
     options = parse_args()
     setup = Setup(options)
 

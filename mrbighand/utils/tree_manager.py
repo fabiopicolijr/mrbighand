@@ -11,7 +11,7 @@ class TreeManager(Tree):
 
     def __init__(self):
         super().__init__()
-        self.reserved_fields = ['id']
+        self.reserved_fields = ["id"]
 
     def attach_node(self, identifier, tag, type_, parent=None, related_list_id=None):
         """
@@ -59,6 +59,7 @@ class TreeManager(Tree):
                 iterator += 1
             else:
                 loop = False
+
         return identifier
 
     def get_nodes_by_type(self, type_):
