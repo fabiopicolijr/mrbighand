@@ -1,6 +1,6 @@
 import pandas
 
-from mrbighand.config import context, OUTPUT_PATH
+from mrbighand.config import OUTPUT_PATH, context
 from mrbighand.utils.functions import write_file
 from mrbighand.utils.progress4gl import Progress4GL
 from mrbighand.utils.tree_manager import TreeManager

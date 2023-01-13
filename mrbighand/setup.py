@@ -1,13 +1,10 @@
 import os
 
-from mrbighand.config import (
-    ROOT_PATH,
-    OS_NAME,
-    IMPORT_PATH,
-    API_GET_OUTPUT_SCHEMA_FILENAME,
-    API_CONFIG_FILENAME,
-)
-from mrbighand.utils.logger import config as logger_config, log
+from mrbighand.config import (API_CONFIG_FILENAME,
+                              API_GET_OUTPUT_SCHEMA_FILENAME, IMPORT_PATH,
+                              OS_NAME, ROOT_PATH)
+from mrbighand.utils.logger import config as logger_config
+from mrbighand.utils.logger import log
 
 
 class Setup:

@@ -1,9 +1,8 @@
 import pandas
 
 from mrbighand.config import ERROR, OUTPUT_PATH, context
+from mrbighand.generators.marketplace import (MarketplaceBehaveGenerator, MarketplaceProgressGenerator)
 from mrbighand.setup import Setup
-from mrbighand.generators.marketplace import MarketplaceBehaveGenerator
-from mrbighand.generators.marketplace import MarketplaceProgressGenerator
 from mrbighand.utils.functions import json_to_dict, parse_args
 from mrbighand.utils.logger import log
 from mrbighand.utils.tree_manager import TreeManager
@@ -43,8 +42,10 @@ def main():
         log(e, ERROR)
 
 
-def project_setup():
-    """Parse the arguments and sets up the Mr.BigHand structure."""
+def project_setup() -> Setup:
+    """
+    Parse the arguments and sets up the Mr.BigHand structure.
+    """
     options = parse_args()
     setup = Setup(options)
 

@@ -12,7 +12,7 @@ import datetime
 import logging
 import os
 
-from mrbighand import ROOT_PATH, DEBUG, ERROR, INFO
+from mrbighand import DEBUG, ERROR, INFO, ROOT_PATH
 
 _now = datetime.datetime.now()
 _logger = logging.getLogger("mrbighand")
