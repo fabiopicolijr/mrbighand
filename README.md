@@ -35,10 +35,6 @@
 			- POSTMAN
 				- collection
 	
-	- Onboarding
-		- Esse ponto foi levantado pelo Clei e também concordei com ele, pois tendo artefatos gerados por uma ferramenta (atualizada)
-			a pessoa nova vai se sentir mais segura em qual padrão seguir.
-	
 
 ## Functionalities
 
