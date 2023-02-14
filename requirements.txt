@@ -1,6 +1,9 @@
 # A Python utility / library to sort Python imports.
 isort==5.11.4
 
+# For data manipulation and analysis
+pandas==1.5.2
+
 # Pylint is a Python static code analysis tool which looks for programming errors, helps enforcing a coding standard, sniffs for code smells and offers simple refactoring suggestions.
 pylint==2.15.10
 

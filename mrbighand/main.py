@@ -1,7 +1,7 @@
 import pandas
 
-from mrbighand.config import ERROR, OUTPUT_PATH, context
-from mrbighand.generators.marketplace import (MarketplaceBehaveGenerator, MarketplaceProgressGenerator)
+from mrbighand.config import OUTPUT_PATH, context
+from mrbighand.generators.marketplace import MarketplaceProgressGenerator
 from mrbighand.setup import Setup
 from mrbighand.utils.functions import json_to_dict, parse_args
 from mrbighand.utils.logger import log
@@ -13,33 +13,29 @@ def main():
     Main function
     Responsible for calling Setup, Import Input Files and calling Generators (Progress4GL, Behave, Docs and Postman).
     """
-    try:
-        # SETUP
-        context.setup = project_setup()
 
-        # IMPORT INPUT FILES
-        api_schema_tree = get_api_schema(context.setup.api_schema_file)
-        context.api_config = pandas.read_json(context.setup.api_config_file)
+    # SETUP
+    context.setup = project_setup()
 
-        # GENERATOR: PROGRESS
-        # TODO 1: Generate Progress files => ONGOING
-        progress_generator = MarketplaceProgressGenerator(api_schema_tree)
-        progress_generator.generate()
+    # IMPORT INPUT FILES
+    api_schema_tree = get_api_schema(context.setup.api_schema_file)
+    context.api_config = pandas.read_json(context.setup.api_config_file)
 
-        # GENERATOR: BEHAVE
-        # TODO 2: Generate Behave files
-        # behave_generator = BehaveGenerator()  # maybe here, pass api_schema and api_config parameters
-        # behave_generator.generate()
+    # GENERATOR: PROGRESS
+    # TODO 1: Generate Progress files => ONGOING
+    progress_generator = MarketplaceProgressGenerator(api_schema_tree)
+    progress_generator.generate()
 
-        # GENERATOR: DOCS
-        # TODO 3: Generate Docs
+    # GENERATOR: BEHAVE
+    # TODO 2: Generate Behave files
 
-        # GENERATOR: POSTMAN
-        # TODO 4: Generate Postman collection
+    # GENERATOR: DOCS
+    # TODO 3: Generate Docs
 
-        log(f'Your files were generated at "{OUTPUT_PATH}".')
-    except Exception as e:
-        log(e, ERROR)
+    # GENERATOR: POSTMAN
+    # TODO 4: Generate Postman collection
+
+    log(f'Your files were generated at "{OUTPUT_PATH}".')
 
 
 def project_setup() -> Setup:
@@ -54,11 +50,17 @@ def project_setup() -> Setup:
     return setup
 
 
-def get_api_schema(api_schema_file):
+def get_api_schema(api_schema_file: str) -> TreeManager:
+    """
+    Convert a json file into a tree
+    :return TreeManager
+    """
     api_schema_tree = TreeManager()
 
     api_schema_data = json_to_dict(api_schema_file)
     api_schema_tree.dict_to_tree(api_schema_data)
+
+    api_schema_tree.show()
 
     # api_schema_tree.show()
     log("API Schema Tree Generated!")
